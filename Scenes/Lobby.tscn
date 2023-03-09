@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://c13xkhmb22cgl"]
+
+[ext_resource type="Script" path="res://Scripts/Lobby.gd" id="1_kdd0a"]
+[ext_resource type="PackedScene" uid="uid://bhuj5ade4gstu" path="res://Blender/placeholder_mapa.tscn" id="2_lfv03"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jolme"]
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bqpwd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ocfg2"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g25gj"]
+properties/0/path = NodePath(".:linear_velocity")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:angular_velocity")
+properties/1/spawn = true
+properties/1/sync = true
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/sync = true
+properties/3/path = NodePath(".:rotation")
+properties/3/spawn = true
+properties/3/sync = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3kwg"]
+sky_top_color = Color(0.211765, 0.313726, 0.552941, 1)
+sky_horizon_color = Color(0.545098, 0.686275, 0.811765, 1)
+sky_curve = 0.13
+ground_bottom_color = Color(0.545098, 0.686275, 0.811765, 1)
+ground_horizon_color = Color(0.545098, 0.686275, 0.811765, 1)
+sun_angle_max = 7.74
+sun_curve = 0.475682
+
+[sub_resource type="Sky" id="Sky_vmlhk"]
+sky_material = SubResource("ProceduralSkyMaterial_r3kwg")
+
+[sub_resource type="Environment" id="Environment_0wenw"]
+background_mode = 2
+sky = SubResource("Sky_vmlhk")
+ambient_light_color = Color(0.5, 0.5, 0.5, 1)
+ambient_light_sky_contribution = 0.3
+tonemap_mode = 2
+tonemap_white = 16.0
+
+[node name="Lobby" type="Node"]
+script = ExtResource("1_kdd0a")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Host" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Host
+"
+
+[node name="Join" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 102.0
+offset_bottom = 37.0
+text = "Join"
+
+[node name="Mundo" type="Node3D" parent="."]
+
+[node name="Pelota" type="RigidBody3D" parent="Mundo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.896823, 3.21417, 1.02998)
+physics_material_override = SubResource("PhysicsMaterial_jolme")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/Pelota"]
+shape = SubResource("SphereShape3D_bqpwd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mundo/Pelota"]
+mesh = SubResource("SphereMesh_ocfg2")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Mundo/Pelota"]
+replication_config = SubResource("SceneReplicationConfig_g25gj")
+
+[node name="Camera3D" type="Camera3D" parent="Mundo"]
+transform = Transform3D(0.807733, 0.183804, -0.560164, 0, 0.950157, 0.311771, 0.589549, -0.251828, 0.767473, -2.25866, 2.29424, 3.54127)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Mundo"]
+environment = SubResource("Environment_0wenw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Mundo/WorldEnvironment"]
+transform = Transform3D(-0.211837, 0.702185, -0.679752, 0, 0.695537, 0.718491, 0.977305, 0.152203, -0.14734, -0.177896, 5.86195, 0)
+light_energy = 1.4
+shadow_enabled = true
+
+[node name="Players" type="Node3D" parent="Mundo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.71289, 0)
+
+[node name="Placeholder mapa" parent="Mundo" instance=ExtResource("2_lfv03")]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Mundo"]
+_spawnable_scenes = PackedStringArray("res://Player/Player.tscn")
+spawn_path = NodePath("../Players")
+
+[connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]

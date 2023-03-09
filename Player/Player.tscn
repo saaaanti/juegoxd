@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsu43mo6oitlx"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_qce07"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mh24o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p40ox"]
+size = Vector3(0.479, 0.246, 0.652)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qem80"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_j0dgu"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = false
+properties/0/sync = true
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = false
+properties/1/sync = true
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_qce07")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mh24o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574553, -0.213478)
+mesh = SubResource("BoxMesh_p40ox")
+
+[node name="Camera3D" type="Camera3D" parent="MeshInstance3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0157758, 0.335806)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qem80")
+
+[node name="ServerSync" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_j0dgu")
