@@ -1,6 +1,6 @@
 extends Node
 
-const PORT = 4433
+const PORT = 35516
 
 
 
@@ -27,11 +27,14 @@ func _on_host_pressed():
 		print("spawneado el host")
 		add_player(1)
 	
+	print()
 	
 	start_game()
 
 
 func _on_join_pressed():
+	# IP para conectarnos, ponen ifconfig o se fijarán su ip local
+	#192.168.0.105
 	var dir = "127.0.0.1"
 	
 	var peer = ENetMultiplayerPeer.new()
