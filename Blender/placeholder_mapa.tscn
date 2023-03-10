@@ -2,15 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c3xv1cw6t5m74" path="res://Blender/Placeholder mapa.blend" id="1_kxbrd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq5o4"]
-albedo_color = Color(0.415686, 0.415686, 0.415686, 1)
-roughness = 0.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrjiv"]
+albedo_color = Color(0.4, 0.521569, 0.317647, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0e30"]
-albedo_color = Color(1, 0.745098, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22r7r"]
+albedo_color = Color(0.67451, 0.490196, 0.717647, 1)
 
 [node name="Placeholder mapa" instance=ExtResource("1_kxbrd")]
 
 [node name="Cube" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_hq5o4")
-surface_material_override/1 = SubResource("StandardMaterial3D_i0e30")
+surface_material_override/0 = SubResource("StandardMaterial3D_nrjiv")
+surface_material_override/1 = SubResource("StandardMaterial3D_22r7r")

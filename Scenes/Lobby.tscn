@@ -91,7 +91,7 @@ transform = Transform3D(0.807733, 0.183804, -0.560164, 0, 0.950157, 0.311771, 0.
 environment = SubResource("Environment_0wenw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Mundo/WorldEnvironment"]
-transform = Transform3D(-0.211837, 0.702185, -0.679752, 0, 0.695537, 0.718491, 0.977305, 0.152203, -0.14734, -0.177896, 5.86195, 0)
+transform = Transform3D(0.528088, 0.640876, 0.557137, 0.0851626, -0.692741, 0.71614, 0.844909, -0.330738, -0.420407, -0.177896, 5.86195, 0)
 light_energy = 1.4
 shadow_enabled = true
 

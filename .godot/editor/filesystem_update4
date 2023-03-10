@@ -1,3 +1,4 @@
 res://Player/Player.tscn
 res://Scenes/Lobby.tscn
-res://Scripts/Lobby.gd
+res://Blender/placeholder_mapa.tscn
+res://Player/Player.gd

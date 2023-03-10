@@ -27,19 +27,18 @@ func _on_host_pressed():
 		print("spawneado el host")
 		add_player(1)
 	
-	print()
 	
 	start_game()
 
 
 func _on_join_pressed():
-	# IP para conectarnos, ponen ifconfig o se fijarán su ip local
-	#192.168.0.105
-	var dir = "127.0.0.1"
+	var dir = "192.168.0.105"
 	
 	var peer = ENetMultiplayerPeer.new()
 	
 	peer.create_client(dir, PORT)
+	
+	print("peer da ", peer)
 	
 	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
 		OS.alert("No nos unimos :c")
