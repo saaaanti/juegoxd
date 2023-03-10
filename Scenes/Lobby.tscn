@@ -1,28 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c13xkhmb22cgl"]
+[gd_scene load_steps=6 format=3 uid="uid://c13xkhmb22cgl"]
 
 [ext_resource type="Script" path="res://Scripts/Lobby.gd" id="1_kdd0a"]
 [ext_resource type="PackedScene" uid="uid://bhuj5ade4gstu" path="res://Blender/placeholder_mapa.tscn" id="2_lfv03"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jolme"]
-bounce = 1.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_bqpwd"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_ocfg2"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g25gj"]
-properties/0/path = NodePath(".:linear_velocity")
-properties/0/spawn = true
-properties/0/sync = true
-properties/1/path = NodePath(".:angular_velocity")
-properties/1/spawn = true
-properties/1/sync = true
-properties/2/path = NodePath(".:position")
-properties/2/spawn = true
-properties/2/sync = true
-properties/3/path = NodePath(".:rotation")
-properties/3/spawn = true
-properties/3/sync = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3kwg"]
 sky_top_color = Color(0.211765, 0.313726, 0.552941, 1)
@@ -70,20 +49,6 @@ text = "Join"
 
 [node name="Mundo" type="Node3D" parent="."]
 
-[node name="Pelota" type="RigidBody3D" parent="Mundo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.896823, 3.21417, 1.02998)
-physics_material_override = SubResource("PhysicsMaterial_jolme")
-gravity_scale = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/Pelota"]
-shape = SubResource("SphereShape3D_bqpwd")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mundo/Pelota"]
-mesh = SubResource("SphereMesh_ocfg2")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Mundo/Pelota"]
-replication_config = SubResource("SceneReplicationConfig_g25gj")
-
 [node name="Camera3D" type="Camera3D" parent="Mundo"]
 transform = Transform3D(0.807733, 0.183804, -0.560164, 0, 0.950157, 0.311771, 0.589549, -0.251828, 0.767473, -2.25866, 2.29424, 3.54127)
 
@@ -95,13 +60,12 @@ transform = Transform3D(0.528088, 0.640876, 0.557137, 0.0851626, -0.692741, 0.71
 light_energy = 1.4
 shadow_enabled = true
 
-[node name="Players" type="Node3D" parent="Mundo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.71289, 0)
+[node name="Players" type="Node" parent="Mundo"]
 
 [node name="Placeholder mapa" parent="Mundo" instance=ExtResource("2_lfv03")]
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="Mundo"]
-_spawnable_scenes = PackedStringArray("res://Player/Player.tscn")
+_spawnable_scenes = PackedStringArray("res://Player/player_coso.tscn")
 spawn_path = NodePath("../Players")
 
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]

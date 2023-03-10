@@ -32,13 +32,12 @@ func _on_host_pressed():
 
 
 func _on_join_pressed():
-	var dir = "192.168.0.105"
+	var dir = "127.0.0.1"
 	
 	var peer = ENetMultiplayerPeer.new()
 	
 	peer.create_client(dir, PORT)
 	
-	print("peer da ", peer)
 	
 	if peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED:
 		OS.alert("No nos unimos :c")
@@ -48,7 +47,6 @@ func _on_join_pressed():
 	start_game()
 	
 func start_game():
-	$Mundo/Pelota.gravity_scale = 1
 	
 	$Control.hide()
 	
@@ -61,18 +59,23 @@ func _exit_tree():
 	multiplayer.peer_disconnected.disconnect(del_player)
 	
 func add_player(id: int):
-	var character = preload("res://Player/Player.tscn").instantiate()
+	var player_data = preload("res://Player/player_coso.tscn").instantiate()
 	# Set player id.
 	# Randomize character position.
+	player_data.name = str(id)
 	
 	
+	$Mundo/Players.add_child(player_data, true)
 	
-	var pos := Vector2.from_angle(randf() * 2 * PI)
-	character.position = Vector3(pos.x * 5 * randf(), 0, pos.y * 5 * randf())
-	character.name = str(id)
-	$Mundo/Players.add_child(character, true)
+	player_data.set_multiplayer_authority(id)
+	
+	
 	
 func del_player(id: int):
-	if not 	$Mundo/Players.has_node(str(id)):
+	if not $Mundo/Players.has_node(str(id)):
 		return
+		
 	$Mundo/Players.get_node(str(id)).queue_free()
+
+
+		

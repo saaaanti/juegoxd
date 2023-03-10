@@ -5,7 +5,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mh24o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p40ox"]
-size = Vector3(0.479, 0.246, 0.652)
+size = Vector3(0.479, 0.246, 0.767)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nftny"]
 albedo_color = Color(0.92549, 0.533333, 0.431373, 1)
@@ -16,10 +16,10 @@ emission = Color(0.92549, 0.533333, 0.431373, 1)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_j0dgu"]
 properties/0/path = NodePath(".:position")
-properties/0/spawn = false
+properties/0/spawn = true
 properties/0/sync = true
 properties/1/path = NodePath(".:rotation")
-properties/1/spawn = false
+properties/1/spawn = true
 properties/1/sync = true
 
 [node name="Player" type="CharacterBody3D"]

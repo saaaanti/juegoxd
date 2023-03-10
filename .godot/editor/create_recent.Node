@@ -1,6 +1,9 @@
-MultiplayerSpawner
-DirectionalLight3D
 Node3D
+MultiplayerSpawner
+Node
+Button
+Control
+DirectionalLight3D
 MultiplayerSynchronizer
 Camera3D
 MeshInstance3D
@@ -9,6 +12,3 @@ CharacterBody3D
 StaticBody3D
 RigidBody3D
 Node2D
-Button
-Control
-Node

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://p5fgeu2kjwrt"]
+
+[ext_resource type="Script" path="res://Player/PlayerCoso.gd" id="1_jxynm"]
+
+[node name="PlayerCoso" type="Node"]
+script = ExtResource("1_jxynm")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 654.0
+offset_top = 256.0
+offset_right = 662.0
+offset_bottom = 264.0
+text = "Spawnear"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Player/Player.tscn")
+spawn_path = NodePath("..")
+spawn_limit = 1
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

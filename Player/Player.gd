@@ -16,29 +16,29 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var nuestro = false
 
+
 func _enter_tree():
 	# hace que el dueño sea el del nombre, me parece redundante poruqe se llama muchas veces pero yafue
-	set_multiplayer_authority(int(str(name)))
+	set_multiplayer_authority(int(str(get_parent().name)))
 
 func _ready():
-	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
 	
 	if is_multiplayer_authority():
 		nuestro = true
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		$MeshInstance3D/Pivote/Camera3D.current = true
-
+	
 
 func _physics_process(delta):
-	
-	if not nuestro: return
-	# ??
-	
-	# gravedad
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Salto
+	if not nuestro: return
+	
+		# gravedad
+		
+		# Salto
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
@@ -65,8 +65,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
 func _input(event):
+	if not nuestro: return
+	
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad( -1 * event.relative.x * MOUSE_SENS))
 		pivote.rotate_x( deg_to_rad(event.relative.y) * MOUSE_SENS * -1 )
 		pivote.rotation.x = clamp(pivote.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+
