@@ -6,7 +6,6 @@
 script = ExtResource("1_jxynm")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -20,9 +19,40 @@ offset_right = 662.0
 offset_bottom = 264.0
 text = "Spawnear"
 
+[node name="SpinBox" type="SpinBox" parent="Control"]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 256.0
+offset_right = 847.063
+offset_bottom = 287.0
+max_value = 1.0
+value = 1.0
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Player/Player.tscn")
 spawn_path = NodePath("..")
 spawn_limit = 1
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 26.0
+text = "123"
+
+[node name="Team" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 21.0
+offset_right = 572.0
+offset_bottom = 47.0
+text = "-> team 0: 0
+team 1: 0"
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

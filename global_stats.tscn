@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://duy6r2wepvqwa"]
+
+[ext_resource type="Script" path="res://Global_Stats.gd" id="1_syaoo"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5a8ax"]
+properties/0/path = NodePath(".:teams")
+properties/0/spawn = false
+properties/0/sync = true
+
+[node name="Global_Stats" type="Node"]
+script = ExtResource("1_syaoo")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_5a8ax")

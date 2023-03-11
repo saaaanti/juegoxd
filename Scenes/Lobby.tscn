@@ -21,8 +21,9 @@ background_mode = 2
 sky = SubResource("Sky_vmlhk")
 ambient_light_color = Color(0.5, 0.5, 0.5, 1)
 ambient_light_sky_contribution = 0.3
-tonemap_mode = 2
+tonemap_mode = 3
 tonemap_white = 16.0
+adjustment_enabled = true
 
 [node name="Lobby" type="Node"]
 script = ExtResource("1_kdd0a")
@@ -74,7 +75,22 @@ spawn_path = NodePath("../Players")
 [node name="JumpPads" type="Node3D" parent="Mundo/Props"]
 
 [node name="Jumppad" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0119, -1.18285, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5021, -6.38958, -8.98304)
+
+[node name="Jumppad2" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5021, -6.38958, 7.36769)
+
+[node name="Jumppad3" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2671, -6.38958, 7.36769)
+
+[node name="Jumppad4" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2671, -6.38958, -6.58048)
+
+[node name="Jumppad5" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6077, -11.4616, 0.425373)
+
+[node name="Jumppad6" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9367, -11.4616, 0.503216)
 
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]

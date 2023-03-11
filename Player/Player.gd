@@ -4,7 +4,7 @@ extends CharacterBody3D
 class_name Player
 
 const SPEED = 5.0
-const RUN_MULT = 1.5
+const RUN_MULT = 1.8
 const JUMP_VELOCITY = 7
 const JUMP_MULT = 1.2
 const JUMP_CONTROL = 0.2
@@ -15,6 +15,7 @@ const MAX_SPEED = 200
 
 const MOUSE_SENS = 0.02
 
+var vida = 100
 
 
 var crouching = false
@@ -42,6 +43,7 @@ func _ready():
 		nuestro = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		$MeshInstance3D/Pivote/Camera3D.current = true
+		$UI.visible = true
 	
 var last_direction = Vector3.ZERO
 
@@ -93,7 +95,19 @@ func _physics_process(delta):
 	last_direction = direction
 	move_and_slide()
 
+	if Input.is_action_just_pressed("disparar"):
+		var t  = $MeshInstance3D/Pivote/GunCoso/Gun/RayCast3D.get_collider()
+		if t is Player:
+			t.take_damage()
+			t.rpc_id(t.get_multiplayer_authority(), "take_damage")
+#		GlobalStats.increase(get_parent().current_team)
+#
+	$UI/ProgressBar.value = vida
 
+@rpc("any_peer", "call_local")
+func take_damage():
+	vida -= 25
+	
 func _input(event):
 	if not nuestro: return
 	
@@ -101,6 +115,10 @@ func _input(event):
 		rotate_y(deg_to_rad( -1 * event.relative.x * MOUSE_SENS))
 		pivote.rotate_x( deg_to_rad(event.relative.y) * MOUSE_SENS * -1 )
 		pivote.rotation.x = clamp(pivote.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		
+	
+func _exit_tree():
+	GlobalStats.remove_id(multiplayer.get_unique_id())
 
 func jump_boost():
 	velocity.y = JUMP_VELOCITY * 3

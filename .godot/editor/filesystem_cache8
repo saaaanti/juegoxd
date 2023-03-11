@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1678490219
+::res://::1678501262
 icon.svg::CompressedTexture2D::2492463970019401917::1678397497::1678397504::1::::<><>::
 sunflowers_puresky_1k.hdr::CompressedTexture2D::8569608494604332331::1678403493::1678403527::1::::<><>::
 ::res://addons/::1678487490
@@ -33,7 +33,7 @@ texture_10.png::CompressedTexture2D::5875881905608777081::1678487490::1678487494
 texture_11.png::CompressedTexture2D::586834381187909406::1678487490::1678487494::1::::<><>::
 texture_12.png::CompressedTexture2D::3159802831798430425::1678487490::1678487494::1::::<><>::
 texture_13.png::CompressedTexture2D::7670817053123218884::1678487491::1678487494::1::::<><>::
-::res://addons/kenney_prototype_textures/light/::1678487494
+::res://addons/kenney_prototype_textures/light/::1678491908
 texture_01.png::CompressedTexture2D::5509406913267143574::1678487491::1678487494::1::::<><>::
 texture_02.png::CompressedTexture2D::6583894912798070665::1678487491::1678487494::1::::<><>::
 texture_03.png::CompressedTexture2D::2290143232644341457::1678487491::1678487494::1::::<><>::
@@ -93,12 +93,18 @@ texture_13.png::CompressedTexture2D::3347201765844006209::1678487492::1678487493
 Placeholder mapa.blend::PackedScene::6786931305551586829::1678479203::1678479210::1::::<><>::
 placeholder_mapa.tscn::PackedScene::2919630175847734306::1678489963::0::1::::<><>::uid://c3xv1cw6t5m74<>uid://c7livm1q6ivqo<>uid://c7vt0gtwcpp0n
 sunflowers_puresky_1k.hdr::CompressedTexture2D::6550139545711405963::1678403459::1678403460::1::::<><>::
-::res://Player/::1678491687
-Player.gd::GDScript::-1::1678491172::0::1::::<>CharacterBody3D<>::
-Player.tscn::PackedScene::8465760239999653337::1678491687::0::1::::<><>::res://Player/Player.gd
-PlayerCoso.gd::GDScript::-1::1678491172::0::1::::<>Node<>::
-player_coso.tscn::PackedScene::1115078529149529205::1678491687::0::1::::<><>::res://Player/PlayerCoso.gd
-::res://Scenes/::1678491687
-Lobby.tscn::PackedScene::6656968614145079687::1678491687::0::1::::<><>::res://Scripts/Lobby.gd<>uid://bhuj5ade4gstu
+::res://Cosas/::1678491950
+::res://Cosas/JumpPad/::1678499668
+jumppad.gd::GDScript::-1::1678492219::0::1::::<>Node3D<>::
+jumppad.tscn::PackedScene::4532947872894390851::1678499668::0::1::::<><>::uid://b3iubmvgmf5uc<>res://Cosas/JumpPad/jumppad.gd
+::res://Player/::1678501254
+Player.gd::GDScript::-1::1678500874::0::1::::Player<>CharacterBody3D<>::
+Player.tscn::PackedScene::8465760239999653337::1678501254::0::1::::<><>::res://Player/Player.gd<>uid://cocwaa3iforpd
+PlayerCoso.gd::GDScript::-1::1678500843::0::1::::<>Node<>::
+player_coso.tscn::PackedScene::1115078529149529205::1678501254::0::1::::<><>::res://Player/PlayerCoso.gd
+::res://Player/Guns/::1678501254
+gun.tscn::PackedScene::5760949751292896389::1678501254::0::1::::<><>::
+::res://Scenes/::1678501255
+Lobby.tscn::PackedScene::6656968614145079687::1678501255::0::1::::<><>::res://Scripts/Lobby.gd<>uid://bhuj5ade4gstu<>uid://b5t18vrkl8l76
 ::res://Scripts/::1678491178
 Lobby.gd::GDScript::-1::1678491178::0::1::::<>Node<>::
