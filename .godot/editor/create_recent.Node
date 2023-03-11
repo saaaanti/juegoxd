@@ -1,3 +1,8 @@
+OmniLight3D
+LightmapGI
+LightmapProbe
+Node3D
+MeshInstance3D
 ProgressBar
 Control
 RayCast3D
@@ -5,8 +10,6 @@ SpinBox
 MultiplayerSynchronizer
 Node
 Label
-Node3D
-MeshInstance3D
 Area3D
 CollisionShape3D
 MultiplayerSpawner

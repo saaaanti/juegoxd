@@ -1,8 +1,5 @@
 res://Scenes/Lobby.tscn
-res://global_stats.tscn
-res://Global_Stats.gd
-res://Player/player_coso.tscn
 res://Player/Player.tscn
-res://Player/Guns/gun.tscn
-res://Player/PlayerCoso.gd
+res://Cosas/lampara.tscn
+res://Blender/placeholder_mapa.tscn
 res://Player/Player.gd

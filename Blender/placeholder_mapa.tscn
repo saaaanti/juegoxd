@@ -1,20 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhuj5ade4gstu"]
+[gd_scene load_steps=6 format=3 uid="uid://c538xmtpscw7l"]
 
-[ext_resource type="PackedScene" uid="uid://c3xv1cw6t5m74" path="res://Blender/Placeholder mapa.blend" id="1_kxbrd"]
-[ext_resource type="Texture2D" uid="uid://c7livm1q6ivqo" path="res://addons/kenney_prototype_textures/dark/texture_03.png" id="2_gr6p2"]
-[ext_resource type="Texture2D" uid="uid://c7vt0gtwcpp0n" path="res://addons/kenney_prototype_textures/red/texture_05.png" id="3_3ss3g"]
+[ext_resource type="PackedScene" uid="uid://c3xv1cw6t5m74" path="res://Blender/Placeholder mapa.blend" id="1_lxv7q"]
+[ext_resource type="Texture2D" uid="uid://c7livm1q6ivqo" path="res://addons/kenney_prototype_textures/dark/texture_03.png" id="2_8mko0"]
+[ext_resource type="Texture2D" uid="uid://c46muvqwdvhr1" path="res://addons/kenney_prototype_textures/purple/texture_04.png" id="3_odka0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrjiv"]
-albedo_texture = ExtResource("2_gr6p2")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_767qx"]
+albedo_texture = ExtResource("2_8mko0")
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22r7r"]
-albedo_texture = ExtResource("3_3ss3g")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rorvx"]
+albedo_texture = ExtResource("3_odka0")
 uv1_triplanar = true
-uv2_triplanar = true
 
-[node name="Placeholder mapa" instance=ExtResource("1_kxbrd")]
+[node name="Placeholder mapa" instance=ExtResource("1_lxv7q")]
 
-[node name="Cube" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_nrjiv")
-surface_material_override/1 = SubResource("StandardMaterial3D_22r7r")
+[node name="Piso" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_767qx")
+
+[node name="caja" parent="Piso" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rorvx")

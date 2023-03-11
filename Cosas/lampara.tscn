@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjcygx2idk4ud"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rj0a6"]
+size = Vector3(0.4, 0.4, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0txc"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1000.0
+disable_receive_shadows = true
+
+[node name="Lampara" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_rj0a6")
+surface_material_override/0 = SubResource("StandardMaterial3D_j0txc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+light_size = 0.4
+shadow_enabled = true
+omni_range = 12.599
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+shadow_enabled = true
+omni_range = 12.599

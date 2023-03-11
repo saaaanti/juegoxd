@@ -45,6 +45,9 @@ func _ready():
 		$MeshInstance3D/Pivote/Camera3D.current = true
 		$UI.visible = true
 	
+	#Crudazo jasja
+	position = Vector3(0, 10, 0)
+	
 var last_direction = Vector3.ZERO
 
 func _physics_process(delta):

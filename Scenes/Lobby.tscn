@@ -1,29 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://c13xkhmb22cgl"]
+[gd_scene load_steps=7 format=3 uid="uid://cgs61b7xbahta"]
 
 [ext_resource type="Script" path="res://Scripts/Lobby.gd" id="1_kdd0a"]
-[ext_resource type="PackedScene" uid="uid://bhuj5ade4gstu" path="res://Blender/placeholder_mapa.tscn" id="2_lfv03"]
 [ext_resource type="PackedScene" uid="uid://b5t18vrkl8l76" path="res://Cosas/JumpPad/jumppad.tscn" id="3_2blo6"]
+[ext_resource type="PackedScene" uid="uid://c538xmtpscw7l" path="res://Blender/placeholder_mapa.tscn" id="3_il73i"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3kwg"]
-sky_top_color = Color(0.211765, 0.313726, 0.552941, 1)
-sky_horizon_color = Color(0.545098, 0.686275, 0.811765, 1)
-sky_curve = 0.13
-ground_bottom_color = Color(0.545098, 0.686275, 0.811765, 1)
-ground_horizon_color = Color(0.545098, 0.686275, 0.811765, 1)
-sun_angle_max = 7.74
-sun_curve = 0.475682
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_015kw"]
+sky_top_color = Color(0.203922, 0.486275, 0.592157, 1)
+sky_horizon_color = Color(0.568627, 0.669608, 0.705882, 1)
+ground_bottom_color = Color(0.0705882, 0.192157, 0.231373, 1)
+ground_horizon_color = Color(0.568627, 0.669608, 0.705882, 1)
 
-[sub_resource type="Sky" id="Sky_vmlhk"]
-sky_material = SubResource("ProceduralSkyMaterial_r3kwg")
+[sub_resource type="Sky" id="Sky_771f6"]
+sky_material = SubResource("ProceduralSkyMaterial_015kw")
 
-[sub_resource type="Environment" id="Environment_0wenw"]
+[sub_resource type="Environment" id="Environment_ms8pp"]
 background_mode = 2
-sky = SubResource("Sky_vmlhk")
-ambient_light_color = Color(0.5, 0.5, 0.5, 1)
-ambient_light_sky_contribution = 0.3
+sky = SubResource("Sky_771f6")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.14
 tonemap_mode = 3
 tonemap_white = 16.0
-adjustment_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 1.0
+fog_light_color = Color(0.611765, 0.611765, 0.611765, 1)
 
 [node name="Lobby" type="Node"]
 script = ExtResource("1_kdd0a")
@@ -52,19 +53,9 @@ text = "Join"
 [node name="Mundo" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Mundo"]
-transform = Transform3D(0.807733, 0.183804, -0.560164, 0, 0.950157, 0.311771, 0.589549, -0.251828, 0.767473, -2.25866, 2.29424, 3.54127)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Mundo"]
-environment = SubResource("Environment_0wenw")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Mundo/WorldEnvironment"]
-transform = Transform3D(0.528088, 0.640876, 0.557137, 0.0851626, -0.692741, 0.71614, 0.844909, -0.330738, -0.420407, -0.177896, 5.86195, 0)
-light_energy = 1.4
-shadow_enabled = true
+transform = Transform3D(0.807733, 0.183804, -0.560164, 0, 0.950157, 0.311771, 0.589549, -0.251828, 0.767473, -4.82931, 5.34694, 5.33118)
 
 [node name="Players" type="Node" parent="Mundo"]
-
-[node name="Placeholder mapa" parent="Mundo" instance=ExtResource("2_lfv03")]
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="Mundo"]
 _spawnable_scenes = PackedStringArray("res://Player/player_coso.tscn")
@@ -74,23 +65,19 @@ spawn_path = NodePath("../Players")
 
 [node name="JumpPads" type="Node3D" parent="Mundo/Props"]
 
-[node name="Jumppad" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5021, -6.38958, -8.98304)
-
-[node name="Jumppad2" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5021, -6.38958, 7.36769)
-
-[node name="Jumppad3" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2671, -6.38958, 7.36769)
-
 [node name="Jumppad4" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2671, -6.38958, -6.58048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17159, 0.049732, 2.06418)
 
-[node name="Jumppad5" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6077, -11.4616, 0.425373)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Mundo"]
+environment = SubResource("Environment_ms8pp")
 
-[node name="Jumppad6" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9367, -11.4616, 0.503216)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Mundo/WorldEnvironment"]
+transform = Transform3D(-0.866025, -0.454618, 0.20814, 0, 0.416281, 0.909236, -0.5, 0.787422, -0.36051, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Lamparas" type="Node3D" parent="Mundo"]
+
+[node name="Placeholder mapa" parent="Mundo" instance=ExtResource("3_il73i")]
 
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
