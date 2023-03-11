@@ -1,4 +1,7 @@
+Area3D
+CollisionShape3D
 Node3D
+MeshInstance3D
 MultiplayerSpawner
 Node
 Button
@@ -6,8 +9,6 @@ Control
 DirectionalLight3D
 MultiplayerSynchronizer
 Camera3D
-MeshInstance3D
-CollisionShape3D
 CharacterBody3D
 StaticBody3D
 RigidBody3D

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c13xkhmb22cgl"]
+[gd_scene load_steps=7 format=3 uid="uid://c13xkhmb22cgl"]
 
 [ext_resource type="Script" path="res://Scripts/Lobby.gd" id="1_kdd0a"]
 [ext_resource type="PackedScene" uid="uid://bhuj5ade4gstu" path="res://Blender/placeholder_mapa.tscn" id="2_lfv03"]
+[ext_resource type="PackedScene" uid="uid://b5t18vrkl8l76" path="res://Cosas/JumpPad/jumppad.tscn" id="3_2blo6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3kwg"]
 sky_top_color = Color(0.211765, 0.313726, 0.552941, 1)
@@ -67,6 +68,13 @@ shadow_enabled = true
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="Mundo"]
 _spawnable_scenes = PackedStringArray("res://Player/player_coso.tscn")
 spawn_path = NodePath("../Players")
+
+[node name="Props" type="Node3D" parent="Mundo"]
+
+[node name="JumpPads" type="Node3D" parent="Mundo/Props"]
+
+[node name="Jumppad" parent="Mundo/Props/JumpPads" instance=ExtResource("3_2blo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0119, -1.18285, 0)
 
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]

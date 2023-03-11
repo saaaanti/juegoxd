@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5t18vrkl8l76"]
+
+[ext_resource type="Texture2D" uid="uid://b3iubmvgmf5uc" path="res://addons/kenney_prototype_textures/light/texture_08.png" id="1_44ets"]
+[ext_resource type="Script" path="res://Cosas/JumpPad/jumppad.gd" id="1_joqyj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ms25"]
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kawxq"]
+transparency = 1
+blend_mode = 2
+albedo_color = Color(1, 0.329412, 1, 0.662745)
+albedo_texture = ExtResource("1_44ets")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_do5hd"]
+size = Vector3(0.9, 0.397, 0.9)
+
+[node name="Jumppad" type="Node3D"]
+script = ExtResource("1_joqyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_6ms25")
+surface_material_override/0 = SubResource("StandardMaterial3D_kawxq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13852, 0)
+shape = SubResource("BoxShape3D_do5hd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

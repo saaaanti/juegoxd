@@ -5,3 +5,5 @@ res://Scripts/Lobby.gd
 res://Player/Player.gd
 res://Player/PlayerCoso.gd
 res://Player/player_coso.tscn
+res://Cosas/JumpPad/jumppad.gd
+res://Cosas/JumpPad/jumppad.tscn
