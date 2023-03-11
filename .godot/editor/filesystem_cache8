@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1678562485
+::res://::1678563045
 export_presets.cfg::TextFile::-1::1678502754::0::1::::<><>::
 Global_Stats.gd::GDScript::-1::1678505905::0::1::::<>Node<>::
 global_stats.tscn::PackedScene::8614498027528311492::1678558644::0::1::::<><>::res://Global_Stats.gd
@@ -92,12 +92,12 @@ texture_10.png::CompressedTexture2D::8516234109478792011::1678487492::1678487493
 texture_11.png::CompressedTexture2D::4763481840789441413::1678487492::1678487493::1::::<><>::
 texture_12.png::CompressedTexture2D::1803517338716066310::1678487492::1678487493::1::::<><>::
 texture_13.png::CompressedTexture2D::3347201765844006209::1678487492::1678487493::1::::<><>::
-::res://Blender/::1678562629
+::res://Blender/::1678563608
 Placeholder mapa.blend::PackedScene::6786931305551586829::1678562629::1678562630::1::::<><>::
-placeholder_mapa.tscn::PackedScene::6938354647999129459::1678562512::0::1::::<><>::uid://c3xv1cw6t5m74<>uid://c7livm1q6ivqo<>uid://c46muvqwdvhr1
+placeholder_mapa.tscn::PackedScene::6938354647999129459::1678563608::0::1::::<><>::uid://c3xv1cw6t5m74<>uid://c7livm1q6ivqo<>uid://c46muvqwdvhr1
 ::res://Builds/::1678502692
-::res://Cosas/::1678562512
-lampara.tscn::PackedScene::3023718204648028767::1678562512::0::1::::<><>::
+::res://Cosas/::1678563608
+lampara.tscn::PackedScene::3023718204648028767::1678563608::0::1::::<><>::
 ::res://Cosas/JumpPad/::1678499668
 jumppad.gd::GDScript::-1::1678492219::0::1::::<>Node3D<>::
 jumppad.tscn::PackedScene::4532947872894390851::1678499668::0::1::::<><>::uid://b3iubmvgmf5uc<>res://Cosas/JumpPad/jumppad.gd
@@ -105,14 +105,16 @@ jumppad.tscn::PackedScene::4532947872894390851::1678499668::0::1::::<><>::uid://
 ::res://Materiales/::1678561742
 gris.tres::StandardMaterial3D::8164684973136858559::1678561742::0::1::::<><>::uid://dhe54ul1jddwe
 ::res://New Folder/::1678561750
-::res://Player/::1678562512
-Player.gd::GDScript::-1::1678506586::0::1::::Player<>CharacterBody3D<>::
-Player.tscn::PackedScene::8465760239999653337::1678562512::0::1::::<><>::res://Player/Player.gd<>uid://cocwaa3iforpd
+::res://Player/::1678563609
+Player.gd::GDScript::-1::1678563549::0::1::::Player<>CharacterBody3D<>::
+Player.tscn::PackedScene::3282616284083247847::1678563609::0::1::::<><>::res://Player/Player.gd<>uid://beeleje23wcnu
 PlayerCoso.gd::GDScript::-1::1678504573::0::1::::<>Node<>::
-player_coso.tscn::PackedScene::1115078529149529205::1678558644::0::1::::<><>::res://Player/PlayerCoso.gd
-::res://Player/Guns/::1678504348
-gun.tscn::PackedScene::5760949751292896389::1678504348::0::1::::<><>::
-::res://Scenes/::1678562512
-Lobby.tscn::PackedScene::5233061989208211346::1678562512::0::1::::<><>::res://Scripts/Lobby.gd<>uid://b5t18vrkl8l76<>uid://c538xmtpscw7l
+player_coso.tscn::PackedScene::1115078529149529205::1678563608::0::1::::<><>::res://Player/PlayerCoso.gd
+::res://Player/Guns/::1678563609
+Gun.gd::GDScript::-1::1678563199::0::1::::Gun<>Node<>::
+pistola.gd::GDScript::-1::1678563604::0::1::::<>Gun<>::
+Pistola.tscn::PackedScene::2676109079511930662::1678563609::0::1::::<><>::res://Player/Guns/pistola.gd
+::res://Scenes/::1678563608
+Lobby.tscn::PackedScene::5233061989208211346::1678563608::0::1::::<><>::res://Scripts/Lobby.gd<>uid://b5t18vrkl8l76<>uid://c538xmtpscw7l
 ::res://Scripts/::1678491178
 Lobby.gd::GDScript::-1::1678491178::0::1::::<>Node<>::

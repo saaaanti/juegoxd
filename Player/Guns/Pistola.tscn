@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cocwaa3iforpd"]
+[gd_scene load_steps=3 format=3 uid="uid://beeleje23wcnu"]
+
+[ext_resource type="Script" path="res://Player/Guns/pistola.gd" id="1_r61jm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2xf07"]
 size = Vector3(0.08, 0.127, 0.5)
 
-[node name="Gun" type="Node3D"]
+[node name="Pistola" type="Node3D"]
+script = ExtResource("1_r61jm")
+dmg = 25
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.176976)

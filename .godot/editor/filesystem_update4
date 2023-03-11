@@ -1,5 +1,10 @@
-res://Scenes/Lobby.tscn
 res://Player/Player.tscn
-res://Cosas/lampara.tscn
-res://Blender/placeholder_mapa.tscn
 res://Player/Player.gd
+res://Cosas/lampara.tscn
+res://Scenes/Lobby.tscn
+res://Blender/placeholder_mapa.tscn
+res://Player/player_coso.tscn
+res://Player/Guns/Pistola.tscn
+res://Player/Guns/Gun.gd
+res://Player/Guns/pistola.gd
+res://Player/Guns/gun.gd

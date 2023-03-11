@@ -77,8 +77,12 @@ func _physics_process(delta):
 		running = true
 
 	if direction:
-		velocity.x = move_toward(velocity.x, direction.x * speed, ACCELERATION)  
-		velocity.z = move_toward(velocity.z, direction.z * speed, ACCELERATION)  
+		
+		
+		
+		
+		velocity.x = move_toward((velocity.x + direction.x * speed) / 2 , direction.x * speed, .8)  
+		velocity.z = move_toward((velocity.z + direction.z * speed) / 2 , direction.z * speed, .8)  
 
 	elif not is_on_floor():
 		
@@ -98,11 +102,11 @@ func _physics_process(delta):
 	last_direction = direction
 	move_and_slide()
 
-	if Input.is_action_just_pressed("disparar"):
-		var t  = $MeshInstance3D/Pivote/GunCoso/Gun/RayCast3D.get_collider()
-		if t is Player:
-			t.take_damage()
-			t.rpc_id(t.get_multiplayer_authority(), "take_damage")
+	if Input.is_action_pressed("disparar"):
+		
+		var hit = $MeshInstance3D/Pivote/GunCoso/Pistola.shoot()
+		
+		
 #		GlobalStats.increase(get_parent().current_team)
 #
 	$UI/ProgressBar.value = vida

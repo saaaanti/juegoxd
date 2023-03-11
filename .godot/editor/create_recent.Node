@@ -1,3 +1,5 @@
+RayCast3D
+TextureRect
 OmniLight3D
 LightmapGI
 LightmapProbe
@@ -5,7 +7,6 @@ Node3D
 MeshInstance3D
 ProgressBar
 Control
-RayCast3D
 SpinBox
 MultiplayerSynchronizer
 Node
