@@ -1,6 +1,45 @@
 [gd_scene load_steps=3 format=3 uid="uid://duy6r2wepvqwa"]
 
-[ext_resource type="Script" path="res://Global_Stats.gd" id="1_syaoo"]
+[sub_resource type="GDScript" id="GDScript_im2lr"]
+script/source = "extends Node
+
+var team = {
+	\"ids\": [],
+	\"score\": 0,
+}
+var team0 = team.duplicate(true)
+var team1 = team.duplicate(true)
+
+@export
+var teams = [team0, team1]
+
+@rpc(\"any_peer\", \"call_local\")
+func _add_id(t, id):
+	teams[t].ids.append(id)
+
+func add_id(t, id):
+	rpc(\"_add_id\", t, id)
+
+@rpc(\"any_peer\", \"call_local\")
+func _remove_id(id):
+	
+	for t in teams:
+		if id in t.ids:
+			t.ids.erase(id)
+	
+
+func remove_id(id):
+	rpc(\"_remove_id\", id)
+
+@rpc(\"any_peer\", \"call_local\")
+func _increase_score(t):
+	teams[t].score += 1
+
+
+
+func increase_score(t):
+	rpc(\"_increase_score\", t)
+"
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5a8ax"]
 properties/0/path = NodePath(".:teams")
@@ -8,7 +47,7 @@ properties/0/spawn = false
 properties/0/sync = true
 
 [node name="Global_Stats" type="Node"]
-script = ExtResource("1_syaoo")
+script = SubResource("GDScript_im2lr")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_5a8ax")

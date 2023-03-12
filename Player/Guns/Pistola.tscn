@@ -8,7 +8,9 @@ size = Vector3(0.08, 0.127, 0.5)
 [node name="Pistola" type="Node3D"]
 script = ExtResource("1_r61jm")
 dmg = 25
+rpm = 160.0
+shoot_func = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.176976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47614, -0.316835, -0.168159)
 mesh = SubResource("BoxMesh_2xf07")

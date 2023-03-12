@@ -6,7 +6,7 @@ class_name Gun
 @export var rpm = 60.0
 @export var mag_size = 10
 
-@export var shoot_func : Callable
+@export var custom_shoot_func : Callable
 
 
 signal shoot_signal
@@ -46,14 +46,14 @@ func shoot():
 	
 	var t = raycast.get_collider()
 	if t is Player:
-		t.take_damage()
-		t.rpc_id(t.get_multiplayer_authority(), "take_damage")
+		# t.take_damage(dmg) # * falloff # Creo que este de arriba no hace falta
+		t.rpc_id(t.get_multiplayer_authority(), "take_damage", dmg)
 
 	
 	
 	
-	if shoot_func:
-		shoot_func.call()
+	if custom_shoot_func:
+		custom_shoot_func.call()
 	
 	return t
 

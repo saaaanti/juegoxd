@@ -22,6 +22,9 @@ var crouching = false
 var running = false
 var jumping = false
 
+@export var weapons : Array[PackedScene]
+var weapon_list = []
+var current_weapon = null
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -37,7 +40,14 @@ func _enter_tree():
 	set_multiplayer_authority(int(str(get_parent().name)))
 
 func _ready():
+	if weapons:
+		current_weapon = weapons[0]
 		
+		for w in weapons:
+			if w is PackedScene:
+				var w_i = w.instantiate()
+				$MeshInstance3D/Pivote/GunCoso.add_child(w_i)
+				weapon_list.append(w_i)
 	
 	if is_multiplayer_authority():
 		nuestro = true
@@ -104,7 +114,7 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("disparar"):
 		
-		var hit = $MeshInstance3D/Pivote/GunCoso/Pistola.shoot()
+		var _hit = $MeshInstance3D/Pivote/GunCoso/Pistola.shoot()
 		
 		
 #		GlobalStats.increase(get_parent().current_team)
@@ -112,8 +122,14 @@ func _physics_process(delta):
 	$UI/ProgressBar.value = vida
 
 @rpc("any_peer", "call_local")
-func take_damage():
-	vida -= 25
+func take_damage(dmg):
+	vida -= dmg
+	if vida <= 0:
+		die()
+		
+func die():
+	get_parent().despawn()
+	queue_free()
 	
 func _input(event):
 	if not nuestro: return
@@ -129,4 +145,3 @@ func _exit_tree():
 
 func jump_boost():
 	velocity.y = JUMP_VELOCITY * 3
-	print("Salta fuerte")

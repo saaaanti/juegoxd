@@ -29,6 +29,7 @@ properties/2/sync = true
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_qce07")
+weapons = Array[PackedScene]([ExtResource("2_5434c")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mh24o")
@@ -42,9 +43,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nftny")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0157758, 0.335806)
 
 [node name="GunCoso" type="Node3D" parent="MeshInstance3D/Pivote"]
-
-[node name="Pistola" parent="MeshInstance3D/Pivote/GunCoso" instance=ExtResource("2_5434c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.587609, -0.338926, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_qem80")
